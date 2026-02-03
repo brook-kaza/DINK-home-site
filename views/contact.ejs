@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Contact Us | Dink Studio' %>
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-black">
+    <%- include('partials/header') %>
+
+        <main id="contact-content" class="max-w-7xl mx-auto px-6 py-24 md:py-40 relative page-offset">
+            <div class="gold-glow top-0 right-0"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+
+                <div class="space-y-16">
+                    <div class="reveal-init">
+                        <span class="text-[#C5A059] uppercase tracking-[0.5em] text-[10px] font-black mb-6 block">
+                            Contact & Inquiries
+                        </span>
+                        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.85]">
+                            LET'S <br /><span class="text-[#C5A059]">TALK.</span>
+                        </h1>
+                        <p class="text-zinc-500 max-w-md text-lg font-light leading-relaxed">
+                            Transforming your space starts with a single conversation. Reach out for bespoke furniture
+                            or full interior consultations.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-8">
+                        <div class="reveal-init group">
+                            <h3
+                                class="font-black uppercase tracking-widest text-[10px] text-zinc-600 mb-4 group-hover:text-[#C5A059] transition-colors">
+                                Showroom Location
+                            </h3>
+                            <p class="text-white text-sm leading-relaxed font-light">
+                                Bole Road, Addis Ababa<br />
+                                Partnered with Keste Damena
+                            </p>
+                        </div>
+                        <div class="reveal-init group">
+                            <h3
+                                class="font-black uppercase tracking-widest text-[10px] text-zinc-600 mb-4 group-hover:text-[#C5A059] transition-colors">
+                                Digital Correspondence
+                            </h3>
+                            <p class="text-white text-sm font-light">
+                                info@dinkhome.com<br />
+                                @dink_home_interiors
+                            </p>
+                        </div>
+                        <div class="reveal-init group">
+                            <h3
+                                class="font-black uppercase tracking-widest text-[10px] text-zinc-600 mb-4 group-hover:text-[#C5A059] transition-colors">
+                                Office Hours
+                            </h3>
+                            <p class="text-white text-sm font-light">
+                                Monday — Saturday<br />
+                                09:00 AM - 07:00 PM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-init glass-card p-8 md:p-16 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#C5A059]/5 blur-[100px] rounded-full"></div>
+
+                    <form action="/contact" method="POST" class="relative z-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" name="name" placeholder="Name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" name="phone" placeholder="+251..." class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" name="email" placeholder="email@example.com" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Project Type</label>
+                            <select name="type" class="form-input bg-black/50 cursor-pointer">
+                                <option value="residential" class="bg-zinc-900">Residential Furniture</option>
+                                <option value="commercial" class="bg-zinc-900">Commercial / Office</option>
+                                <option value="custom" class="bg-zinc-900">Custom Design Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group !mb-12">
+                            <label class="form-label">Message</label>
+                            <textarea name="message" rows="3" placeholder="Tell us about your project..."
+                                class="form-input resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-luxury group">
+                            <span>Send Inquiry</span>
+                            <svg class="w-4 h-4 ml-4 transition-transform group-hover:translate-x-2" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <a href="https://wa.me/2519XXXXXXXX" target="_blank"
+            class="fixed bottom-10 right-10 flex items-center gap-3 bg-white hover:bg-[#C5A059] text-black hover:text-white px-6 py-4 rounded-full shadow-2xl transition-all duration-500 group z-50">
+            <span
+                class="text-[10px] font-black uppercase tracking-widest max-w-0 overflow-hidden group-hover:max-w-[150px] transition-all duration-500 whitespace-nowrap">
+                Direct Chat
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.12l-.767 2.801 2.863-.751c.821.512 1.705.811 2.647.811 3.18 0 5.767-2.587 5.768-5.767 0-3.18-2.587-5.766-5.768-5.766zm3.29 8.087c-.147.414-.711.762-1.162.86-.312.068-.716.126-1.13.126-1.226 0-2.456-.565-3.268-1.377-.812-.812-1.377-2.042-1.377-3.268 0-.414.058-.818.126-1.13.098-.451.446-1.015.86-1.162.137-.048.273-.073.403-.073.184 0 .341.092.441.282l.462 1.113c.046.109.04.234-.017.34l-.271.432c-.067.106-.057.247.026.331.433.433.916.776 1.458 1.019.084.037.225.047.331-.026l.432-.271c.106-.057.231-.063.34-.017l1.113.462c.19.1.282.257.282.441 0 .13-.025.266-.073.403z" />
+            </svg>
+        </a>
+
+        <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

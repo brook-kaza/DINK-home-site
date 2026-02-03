@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Dink Home | Modern Furniture in Addis Ababa' %>
+    </title>
+    <meta name="description"
+        content="Dink Home offers premium, precision-engineered furniture in Addis Ababa, Ethiopia. Explore our archive of modern sofas, beds, and living room pieces.">
+    <meta property="og:title"
+        content="<%= typeof title !=='undefined' ? title : 'Dink Home | Modern Furniture in Addis Ababa' %>">
+    <meta property="og:description"
+        content="Elevating Ethiopian living through industrial precision. Discover premium furniture designed for the modern home.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-[#0f0f0f] text-white antialiased smooth-reveal">
+
+    <div class="cursor-dot hidden md:block"></div>
+
+    <nav id="main-nav"
+        class="border-b border-white/5 bg-black/80 backdrop-blur-xl fixed top-0 w-full py-5 px-6 transition-all duration-500">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+            <a href="/" class="group logo-container">
+                <div id="logo-slider">
+                    <div class="logo-item text-xl md:text-2xl font-black tracking-tighter uppercase text-white">
+                        DINK<span class="text-[#C5A059]">HOME</span>
+                    </div>
+                    <div class="logo-item text-xl md:text-2xl font-black tracking-tighter uppercase text-[#C5A059]">
+                        DINK<span class="text-white">STUDIO</span>
+                    </div>
+                </div>
+            </a>
+
+            <% const links=[ { name: '01. Home' , path: '/' }, { name: '02. Showroom' , path: '/catalog' }, {
+                name: '03. Spaces' , path: '/testimonials' }, { name: '04. Story' , path: '/about' } ]; %>
+
+                <div class="hidden md:flex items-center gap-10 text-[10px] uppercase tracking-[0.25em] font-bold">
+                    <% links.forEach(link=> {
+                        const isActive = typeof currentPath !== 'undefined' && currentPath === link.path;
+                        %>
+                        <a href="<%= link.path %>"
+                            class="nav-link relative py-2 transition-colors duration-500 <%= isActive ? 'text-white active' : 'text-zinc-500 hover:text-white' %>">
+                            <%= link.name %>
+                        </a>
+                        <% }); %>
+
+                            <a href="/contact"
+                                class="ml-4 px-8 py-3 border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-black transition-all duration-500 font-black text-[9px] uppercase tracking-widest">
+                                Inquiry
+                            </a>
+
+                            <% if (typeof session !=='undefined' && session && session.userId) { %>
+                                <a href="/dashboard"
+                                    class="px-6 py-3 bg-white text-black hover:bg-[#C5A059] transition-all duration-500 font-black text-[9px] uppercase tracking-widest">
+                                    Dashboard
+                                </a>
+                                <% } else { %>
+                                    <a href="/auth/login"
+                                        class="px-6 py-3 text-white hover:text-[#C5A059] transition-all duration-500 font-black text-[9px] uppercase tracking-widest">
+                                        Login
+                                    </a>
+                                    <a href="/auth/register"
+                                        class="px-6 py-3 bg-[#C5A059] text-black hover:bg-white transition-all duration-500 font-black text-[9px] uppercase tracking-widest">
+                                        Sign Up
+                                    </a>
+                                    <% } %>
+                </div>
+
+                <button id="menu-btn" class="md:hidden relative z-[200] p-2 group" aria-label="Toggle Menu">
+                    <div class="space-y-2">
+                        <span id="line1"
+                            class="block w-8 h-0.5 bg-[#C5A059] transition-all duration-500 origin-center"></span>
+                        <span id="line2"
+                            class="block w-5 h-0.5 bg-white ml-auto transition-all duration-500 origin-center"></span>
+                    </div>
+                </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="fixed inset-0 translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] flex flex-col justify-center p-12">
+            <div
+                class="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none select-none">
+                <span class="text-[30vw] font-black uppercase tracking-tighter text-white">DINK</span>
+            </div>
+
+            <div class="flex flex-col gap-8 relative z-10">
+                <% const mobileLinks=[...links, { name: '05. Contact' , path: '/contact' }]; // Add auth links if not
+                    logged in if (!(typeof session !=='undefined' && session && session.userId)) { mobileLinks.push({
+                    name: '06. Login' , path: '/auth/login' }); mobileLinks.push({ name: '07. Sign Up' ,
+                    path: '/auth/register' }); } else { mobileLinks.push({ name: '06. Dashboard' , path: '/dashboard'
+                    }); } mobileLinks.forEach((link, index)=> {
+                    const isActive = typeof currentPath !== 'undefined' && currentPath === link.path;
+                    %>
+                    <a href="<%= link.path %>"
+                        class="mobile-link font-black uppercase tracking-tighter opacity-0 translate-y-10 transition-all duration-700 <%= isActive ? 'text-[#C5A059]' : 'text-white' %>">
+                        <%= link.name %>
+                    </a>
+                    <% }); %>
+            </div>
+
+            <div
+                class="absolute bottom-12 left-12 right-12 flex justify-between items-end border-t border-white/10 pt-8">
+                <div>
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2">Location</p>
+                    <p class="text-[11px] uppercase tracking-[0.1em] text-zinc-500">Addis Ababa, Ethiopia</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-zinc-700 font-black">IG</span>
+                    <span class="text-zinc-700 font-black">TG</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Lightweight Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const mobileLinkElements = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    line1.style.transform = 'translateY(5px) rotate(45deg)';
+                    line2.style.width = '32px';
+                    line2.style.transform = 'translateY(-5px) rotate(-45deg)';
+                    line2.style.backgroundColor = '#C5A059';
+                } else {
+                    line1.style.transform = 'translateY(0) rotate(0)';
+                    line2.style.width = '20px';
+                    line2.style.transform = 'translateY(0) rotate(0)';
+                    line2.style.backgroundColor = '#ffffff';
+                }
+
+                mobileMenu.style.transform = isMenuOpen ? 'translateX(0)' : 'translateX(100%)';
+                document.body.classList.toggle('menu-open', isMenuOpen);
+
+                mobileLinkElements.forEach((link, i) => {
+                    if (isMenuOpen) {
+                        setTimeout(() => {
+                            link.style.opacity = '1';
+                            link.style.transform = 'translateY(0)';
+                        }, 400 + (i * 100));
+                    } else {
+                        link.style.opacity = '0';
+                        link.style.transform = 'translateY(40px)';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <main>

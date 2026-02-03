@@ -1,0 +1,289 @@
+<%- include('partials/header') %>
+
+
+
+    <main class="bg-[#0f0f0f] text-white">
+        <header class="hero-wrapper">
+            <div class="hero-bg-media">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000"
+                    alt="Dink Home Luxury">
+            </div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content px-6 max-w-5xl mx-auto">
+                <span
+                    class="reveal-up text-[#C5A059] font-bold tracking-[0.4em] text-xs md:text-sm uppercase mb-6 block">
+                    Addis Ababa • Luxury • Craft
+                </span>
+                <h1 class="reveal-up text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
+                    Elevate Your <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500">Sanctuary</span>
+                </h1>
+                <p class="reveal-up text-zinc-400 text-sm md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                    Premium furniture engineered with high-density MDF and Keste Damena foam. Designed for the modern
+                    Ethiopian home.
+                </p>
+                <div class="reveal-up flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="/catalog" class="btn-gold px-12 py-5 uppercase font-bold text-xs tracking-widest">Explore
+                        Collection</a>
+                    <a href="#inspiration"
+                        class="btn-outline px-12 py-5 uppercase font-bold text-xs tracking-widest">View
+                        Gallery</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-16 border-y border-white/5 bg-zinc-900/10">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 stagger-container">
+                <div class="stagger-item flex flex-col items-center text-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center text-[#C5A059] text-2xl">
+                        🛡️</div>
+                    <h3 class="font-bold text-xs uppercase tracking-widest">5-Year Warranty</h3>
+                </div>
+                <div class="stagger-item flex flex-col items-center text-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center text-[#C5A059] text-2xl">
+                        🚚</div>
+                    <h3 class="font-bold text-xs uppercase tracking-widest">Free Assembly</h3>
+                </div>
+                <div class="stagger-item flex flex-col items-center text-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center text-[#C5A059] text-2xl">
+                        💎</div>
+                    <h3 class="font-bold text-xs uppercase tracking-widest">KD Quality</h3>
+                </div>
+                <div class="stagger-item flex flex-col items-center text-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center text-[#C5A059] text-2xl">
+                        💳</div>
+                    <h3 class="font-bold text-xs uppercase tracking-widest">Secure Pay</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="reveal-up flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-4xl font-black uppercase tracking-tighter">Curated <span
+                            class="text-[#C5A059]">Selection</span></h2>
+                    <p class="text-zinc-500 text-xs uppercase tracking-[0.3em] mt-3">The Gold Standard of Comfort</p>
+                </div>
+                <a href="/catalog"
+                    class="link-hover text-xs font-bold uppercase tracking-widest border-b border-zinc-800 pb-1 hover:border-[#C5A059] transition-all">Full
+                    Catalog &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 stagger-container">
+                <% featured.forEach(product=> { %>
+                    <a href="/product/<%= product.code %>" class="stagger-item group block">
+                        <div
+                            class="bg-zinc-900 aspect-[4/5] relative overflow-hidden mb-8 flex items-center justify-center p-10 border border-white/5">
+                            <img src="<%= product.image %>"
+                                class="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-110"
+                                alt="<%= product.name %>">
+                            <div
+                                class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#C5A059] featured-badge">
+                                Featured</div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3
+                                    class="text-xl font-bold uppercase tracking-tight group-hover:text-[#C5A059] transition">
+                                    <%= product.name %>
+                                </h3>
+                                <p class="text-zinc-500 text-xs mt-1 uppercase tracking-widest">
+                                    <%= product.category %>
+                                </p>
+                            </div>
+                            <span class="text-white font-medium">
+                                <%= product.price.toLocaleString() %> ETB
+                            </span>
+                        </div>
+                    </a>
+                    <% }) %>
+            </div>
+        </section>
+
+        <section id="inspiration" class="py-32 bg-zinc-900/20 border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-6 philosophy-grid">
+                <div class="reveal-up philosophy-image-container group">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1000"
+                        alt="Design Philosophy">
+                    <div
+                        class="absolute inset-0 border border-white/10 m-6 group-hover:m-3 transition-all duration-700">
+                    </div>
+                </div>
+                <div class="reveal-up space-y-10">
+                    <span class="text-[#C5A059] font-bold tracking-[0.4em] text-xs uppercase block">Design
+                        Philosophy</span>
+                    <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9]">The Modern
+                        <br /> Addis <span class="text-zinc-500">Living</span>
+                    </h2>
+                    <p class="text-zinc-400 leading-relaxed text-lg">We don't just sell furniture; we design spaces. Our
+                        pieces are crafted to maximize space in Addis Ababa apartments using high-density materials that
+                        endure.</p>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex items-center gap-5 text-sm font-bold uppercase tracking-widest text-zinc-300">
+                            <span class="w-12 h-px bg-[#C5A059]"></span> Precision MDF Engineering
+                        </div>
+                        <div class="flex items-center gap-5 text-sm font-bold uppercase tracking-widest text-zinc-300">
+                            <span class="w-12 h-px bg-[#C5A059]"></span> Keste Damena HR Foam
+                        </div>
+                    </div>
+                    <a href="/catalog"
+                        class="inline-block btn-gold px-12 py-5 uppercase font-black text-xs tracking-widest">Shop the
+                        Look</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal-up space-y-8 order-2 lg:order-1">
+                    <p class="text-[#C5A059] text-xs font-black uppercase tracking-[0.4em]">The Dink Standard</p>
+                    <h2 class="text-5xl font-black uppercase tracking-tighter leading-tight">Engineered for <br> <span
+                            class="text-zinc-500">Generations.</span></h2>
+                    <div class="space-y-12 mt-12">
+                        <div class="flex gap-8">
+                            <span class="text-[#C5A059] font-black text-3xl">01</span>
+                            <div>
+                                <h4 class="font-bold uppercase tracking-widest text-sm mb-3">Industrial Grade MDF</h4>
+                                <p class="text-zinc-500 text-sm leading-relaxed max-w-sm">Moisture-resistant, heavy-duty
+                                    framing designed specifically for the Addis climate.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8">
+                            <span class="text-[#C5A059] font-black text-3xl">02</span>
+                            <div>
+                                <h4 class="font-bold uppercase tracking-widest text-sm mb-3">Authentic KD Foam</h4>
+                                <p class="text-zinc-500 text-sm leading-relaxed max-w-sm">We only use Grade-1 Keste
+                                    Damena High Resilience foam for lifetime shape retention.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-up relative order-1 lg:order-2">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000"
+                        alt="Material Quality" class="quality-image">
+                    <div
+                        class="absolute -bottom-10 -left-10 bg-[#C5A059] p-10 text-black hidden xl:block warranty-badge">
+                        <p class="text-5xl font-black uppercase leading-none">5-YR</p>
+                        <p class="text-xs font-bold uppercase tracking-widest mt-2">Full Warranty</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="editorial-slider">
+            <!-- Slide 01 -->
+            <div class="editorial-slide active" data-index="01">
+                <div class="editorial-visual rounded-section">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000" alt="Bole Loft">
+                </div>
+                <div class="editorial-content rounded-section">
+                    <span class="editorial-tag">Project 01 / Boutique Residential</span>
+                    <h2 class="editorial-title">The Bole <br> <span class="text-zinc-500">Loft.</span></h2>
+                    <p class="editorial-desc">An exercise in industrial minimalism. Featuring custom-engineered MDF
+                        cabinetry and high-translucency glass partitions.</p>
+                    <a href="/catalog"
+                        class="btn-outline inline-block px-10 py-4 uppercase font-bold text-[10px] tracking-widest self-start">View
+                        Details</a>
+                </div>
+            </div>
+
+            <!-- Slide 02 -->
+            <div class="editorial-slide" data-index="02">
+                <div class="editorial-visual rounded-section">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2000"
+                        alt="Summit Villa">
+                </div>
+                <div class="editorial-content rounded-section">
+                    <span class="editorial-tag">Project 02 / Modern Estate</span>
+                    <h2 class="editorial-title">Summit <br> <span class="text-zinc-500">Villa.</span></h2>
+                    <p class="editorial-desc">A spacious masterclass in comfort. Integrated with Grade-1 Keste Damena HR
+                        foam and premium upholstery fabrics.</p>
+                    <a href="/catalog"
+                        class="btn-outline inline-block px-10 py-4 uppercase font-bold text-[10px] tracking-widest self-start">Explore
+                        Spaces</a>
+                </div>
+            </div>
+
+            <!-- Slide 03 -->
+            <div class="editorial-slide" data-index="03">
+                <div class="editorial-visual rounded-section">
+                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2000"
+                        alt="Old Airport">
+                </div>
+                <div class="editorial-content rounded-section">
+                    <span class="editorial-tag">Project 03 / Classical Fusion</span>
+                    <h2 class="editorial-title">The Airport <br> <span class="text-zinc-500">Suite.</span></h2>
+                    <p class="editorial-desc">Timeless aesthetics met with modern precision. UV-cured finishes that
+                        protect against the Addis sun.</p>
+                    <a href="/catalog"
+                        class="btn-outline inline-block px-10 py-4 uppercase font-bold text-[10px] tracking-widest self-start">See
+                        Archive</a>
+                </div>
+            </div>
+
+            <div class="slider-nav">
+                <div class="nav-counter font-black tracking-widest text-[10px] uppercase">
+                    <span class="counter-current text-[#C5A059]" id="current-slide-num">01</span> — 03
+                </div>
+            </div>
+
+            <div class="slider-loader-bar">
+                <div class="loader-inner" id="editorial-loader"></div>
+            </div>
+        </section>
+
+        <section class="py-40 px-6 bg-zinc-900/10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="reveal-up w-px h-24 bg-gradient-to-b from-[#C5A059] to-transparent mx-auto mb-12"></div>
+                <h2 class="reveal-up font-serif italic text-4xl md:text-6xl leading-tight mb-12">
+                    "We don't just build furniture; we curate the backdrop of your <span class="text-[#C5A059]">most
+                        silent, beautiful moments.</span>"
+                </h2>
+                <p class="reveal-up text-zinc-500 uppercase tracking-[0.5em] text-[10px] font-black mb-12">Dink Home
+                    Manifesto</p>
+                <a href="/about"
+                    class="reveal-up link-hover inline-block text-xs font-bold uppercase tracking-widest border-b border-zinc-800 pb-2 hover:border-[#C5A059]">Our
+                    Story</a>
+            </div>
+        </section>
+
+        <section class="py-32 bg-[#C5A059] text-black">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                    <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">The Gold <br>
+                        Standard</h2>
+                    <div class="max-w-xs text-right">
+                        <p class="font-bold uppercase text-xs tracking-widest mb-4">Trusted across Addis Ababa</p>
+                        <div class="h-1 w-20 bg-black ml-auto"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-container">
+                    <div
+                        class="stagger-item bg-black/5 p-12 border border-black/10 hover:bg-white/10 transition-colors standard-testimonial-card">
+                        <p class="text-2xl font-bold leading-snug mb-10">"The attention to detail in the MDF finishes is
+                            unlike anything else in Ethiopia."</p>
+                        <p class="text-xs uppercase font-black tracking-widest opacity-60">Sara M. • Bole</p>
+                    </div>
+                    <div
+                        class="stagger-item bg-black/5 p-12 border border-black/10 hover:bg-white/10 transition-colors standard-testimonial-card">
+                        <p class="text-2xl font-bold leading-snug mb-10">"The Keste Damena foam integration makes the
+                            sofa incredibly comfortable for years."</p>
+                        <p class="text-xs uppercase font-black tracking-widest opacity-60">Henok A. • Sarbet</p>
+                    </div>
+                    <div
+                        class="stagger-item bg-black/5 p-12 border border-black/10 hover:bg-white/10 transition-colors standard-testimonial-card">
+                        <p class="text-2xl font-bold leading-snug mb-10">"Seamless delivery and professional assembly
+                            team. Highly recommended."</p>
+                        <p class="text-xs uppercase font-black tracking-widest opacity-60">Amen T. • CMC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>

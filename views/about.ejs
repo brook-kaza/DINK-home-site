@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Our Story' %> | Dink Studio
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-black">
+    <%- include('partials/header') %>
+
+        <section
+            class="relative h-[80vh] flex items-center justify-center overflow-hidden border-b border-zinc-900 hero-parallax">
+            <div
+                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2000')] opacity-20 bg-cover bg-center grayscale hero-bg">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/80 to-[#0a0a0a]"></div>
+
+            <div class="relative z-10 text-center px-6 reveal-init">
+                <span class="text-[#C5A059] uppercase tracking-[0.5em] text-[10px] font-black mb-4 block">Archive 01:
+                    The Birth</span>
+                <h1 class="hero-title font-black uppercase tracking-tighter mb-4 leading-none">
+                    OUR <span class="text-[#C5A059]">STORY.</span>
+                </h1>
+                <p class="text-zinc-500 max-w-lg mx-auto text-sm font-light tracking-wide">
+                    Elevating the Ethiopian living experience through industrial precision and local artistry.
+                </p>
+            </div>
+        </section>
+
+        <main class="max-w-7xl mx-auto px-6 -mt-24 relative z-20 pb-32">
+
+            <article
+                class="scroll-reveal reveal-on-hover bg-zinc-900 border border-zinc-800 rounded-[3rem] overflow-hidden mb-32 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="h-[450px] lg:h-auto overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1200"
+                            alt="Manufacturing"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 img-zoom transition-all duration-1000">
+                    </div>
+                    <div class="p-12 md:p-20 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-8 h-[1px] bg-[#C5A059]"></div>
+                            <span class="text-[#C5A059] text-[10px] uppercase font-black tracking-widest">Established
+                                Addis Ababa</span>
+                        </div>
+                        <h2
+                            class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 leading-[0.9] text-white">
+                            Bridging The<br />Global Standard.
+                        </h2>
+                        <p
+                            class="text-zinc-400 text-lg leading-relaxed mb-10 italic border-l-2 border-[#C5A059]/30 pl-8">
+                            "Dink Home was founded to bridge the gap between world-class design and local Ethiopian
+                            production. By partnering with leaders like Keste Damena, we ensure luxury is accessible."
+                        </p>
+                        <div class="flex items-center gap-5">
+                            <div
+                                class="w-14 h-14 rounded-full bg-zinc-800 flex items-center justify-center font-black text-[#C5A059] border border-white/5">
+                                DH</div>
+                            <div>
+                                <p class="text-sm font-black uppercase tracking-widest text-white">The Founders</p>
+                                <p class="text-[9px] text-zinc-500 uppercase font-bold tracking-widest">Dink Home
+                                    Interiors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
+                <div
+                    class="scroll-reveal reveal-on-hover bg-zinc-900/50 p-10 rounded-[2.5rem] border border-zinc-800 flex flex-col justify-between h-[350px]">
+                    <div>
+                        <h3 class="text-[#C5A059] font-black uppercase tracking-widest text-[10px] mb-6">The Standard
+                        </h3>
+                        <p class="text-zinc-300 text-lg font-medium leading-relaxed">We use high-density industrial MDF
+                            and UV coatings to survive the Addis climate.</p>
+                    </div>
+                    <span class="text-[9px] font-black uppercase tracking-widest text-zinc-600">Archival Quality
+                        Control</span>
+                </div>
+
+                <div
+                    class="scroll-reveal reveal-on-hover bg-[#C5A059] p-10 rounded-[2.5rem] flex flex-col justify-between h-[350px] text-black shadow-[0_0_50px_-10px_rgba(197,160,89,0.3)]">
+                    <div class="space-y-6">
+                        <div class="w-12 h-12 border-2 border-black/20 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+                        </div>
+                        <p class="text-2xl font-black uppercase leading-[1.1] tracking-tight">To make every Ethiopian
+                            home a masterpiece of modern design.</p>
+                    </div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.2em] opacity-60">Dink Home Mission Statement
+                    </p>
+                </div>
+
+                <div
+                    class="scroll-reveal reveal-on-hover bg-zinc-900/50 p-10 rounded-[2.5rem] border border-zinc-800 flex flex-col justify-between h-[350px]">
+                    <div>
+                        <h3 class="text-[#C5A059] font-black uppercase tracking-widest text-[10px] mb-6">The Comfort
+                        </h3>
+                        <p class="text-zinc-300 text-lg font-medium leading-relaxed">Our integration of Keste Damena
+                            foam technology ensures world-class ergonomic support.</p>
+                    </div>
+                    <span class="text-[9px] font-black uppercase tracking-widest text-zinc-600">Bespoke Comfort
+                        Engineering</span>
+                </div>
+            </div>
+
+            <section class="py-20 mb-32">
+                <div class="text-center mb-20 scroll-reveal">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">OUR CORE <span
+                            class="text-[#C5A059]">PILLARS.</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 tilt-container">
+                    <div
+                        class="scroll-reveal tilt-card arch-border p-12 rounded-[3rem] space-y-6 hover:border-[#C5A059]/30 transition-colors">
+                        <span class="text-4xl font-black text-white/10">01</span>
+                        <h4 class="text-xl font-black uppercase tracking-tight text-[#C5A059]">Material Integrity</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Sourcing only premium-grade substrates that
+                            resist warping and environmental wear.</p>
+                    </div>
+                    <div
+                        class="scroll-reveal tilt-card arch-border p-12 rounded-[3rem] space-y-6 hover:border-[#C5A059]/30 transition-colors">
+                        <span class="text-4xl font-black text-white/10">02</span>
+                        <h4 class="text-xl font-black uppercase tracking-tight text-[#C5A059]">Technological Edge</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Utilizing industrial UV curing lines for a
+                            finish that is scratch-resistant and mirror-smooth.</p>
+                    </div>
+                    <div
+                        class="scroll-reveal tilt-card arch-border p-12 rounded-[3rem] space-y-6 hover:border-[#C5A059]/30 transition-colors">
+                        <span class="text-4xl font-black text-white/10">03</span>
+                        <h4 class="text-xl font-black uppercase tracking-tight text-[#C5A059]">Local Legacy</h4>
+                        <p class="text-zinc-500 text-sm leading-relaxed">Investing in Ethiopian artisans and high-skill
+                            labor to build a sustainable local industry.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32 px-4">
+                <div class="order-2 lg:order-1 scroll-reveal">
+                    <h2 class="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.4em] mb-4">Our Methodology
+                    </h2>
+                    <h3 class="text-5xl font-black uppercase tracking-tighter mb-8 leading-none text-white">
+                        Precision<br />Meets Artistry.</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-8">Every piece undergoes a rigorous 5-point
+                        inspection. We don't just "assemble"; we engineer furniture for longevity.</p>
+                    <ul class="space-y-4 text-xs font-black uppercase tracking-[0.2em] text-white">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#C5A059] rounded-full"></span> 100%
+                            Ethiopian Craftsmanship</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-[#C5A059] rounded-full"></span>
+                            Industrial UV Coating Lines</li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 relative scroll-reveal">
+                    <div class="absolute -inset-4 border border-[#C5A059]/20 rounded-[2.5rem] -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200"
+                        class="w-full h-[550px] object-cover rounded-[2rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000"
+                        alt="Workshop">
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/30 border border-zinc-800 rounded-[3rem] p-12 md:p-20 mb-32 scroll-reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="text-4xl font-black uppercase tracking-tighter mb-8 text-white">Ethical Craft,
+                            <br /><span class="text-[#C5A059]">Local Pride.</span>
+                        </h2>
+                        <p class="text-zinc-400 text-lg leading-relaxed">By manufacturing locally, we reduce the carbon
+                            footprint of imported logistics while providing high-skill employment for the community.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4
+                                class="text-white font-black text-xs uppercase tracking-widest border-b border-[#C5A059] pb-2 inline-block">
+                                UV Finished</h4>
+                            <p class="text-zinc-500 text-sm">Automated mirror-smooth coating for durability.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4
+                                class="text-white font-black text-xs uppercase tracking-widest border-b border-[#C5A059] pb-2 inline-block">
+                                Keste Damena</h4>
+                            <p class="text-zinc-500 text-sm">Strategic partnership for premium foam cores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32 text-center scroll-reveal">
+                <h3 class="text-3xl font-black uppercase tracking-tight mb-12 text-white">Ready to start your story?
+                </h3>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <a href="/contact"
+                        class="btn-luxury px-16 py-6 bg-white text-black font-black uppercase text-[10px] tracking-[0.4em] hover:bg-[#C5A059] hover:text-white w-full md:w-auto">Consult
+                        a Designer</a>
+                    <a href="/catalog"
+                        class="btn-luxury px-16 py-6 border border-zinc-700 text-white font-black uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-black w-full md:w-auto">Browse
+                        Furniture</a>
+                </div>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

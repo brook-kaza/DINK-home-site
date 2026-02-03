@@ -1,0 +1,113 @@
+<%- include('../partials/header') %>
+
+    <div class="min-h-screen bg-[#0f0f0f] flex items-center justify-center relative pt-32 pb-24 px-6 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-[60vh] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] opacity-50 z-0">
+        </div>
+        <div
+            class="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[#C5A059] opacity-[0.03] blur-[150px] rounded-full z-0">
+        </div>
+
+        <div class="max-w-md w-full relative z-10">
+
+            <!-- Header Section -->
+            <div class="text-center mb-12 space-y-4 animate-on-load">
+                <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white">
+                    Join <span class="text-[#C5A059]">Dink</span>
+                </h1>
+                <p class="text-zinc-500 text-sm uppercase tracking-widest font-bold">
+                    Create your account to access exclusive designs
+                </p>
+            </div>
+
+            <!-- Error Message -->
+            <% if (error) { %>
+                <div
+                    class="bg-red-500/10 border border-red-500/20 text-red-500 px-6 py-4 mb-8 text-xs font-bold uppercase tracking-widest text-center">
+                    <%= error %>
+                </div>
+                <% } %>
+
+                    <!-- Form Card -->
+                    <div
+                        class="bg-[#151515] border border-zinc-800 p-8 md:p-12 shadow-2xl relative group hover:border-[#C5A059]/30 transition-all duration-500 animate-on-load">
+                        <!-- Corner Accents -->
+                        <div
+                            class="absolute top-0 left-0 w-2 h-2 border-t border-l border-zinc-700 group-hover:border-[#C5A059] transition-colors duration-500">
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-2 h-2 border-t border-r border-zinc-700 group-hover:border-[#C5A059] transition-colors duration-500">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-zinc-700 group-hover:border-[#C5A059] transition-colors duration-500">
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-zinc-700 group-hover:border-[#C5A059] transition-colors duration-500">
+                        </div>
+
+                        <form method="POST" action="/auth/register" class="space-y-6">
+
+                            <div class="grid grid-cols-1 gap-6">
+                                <div class="space-y-2">
+                                    <label for="username"
+                                        class="text-[10px] font-black uppercase tracking-widest text-zinc-500 group-focus-within:text-[#C5A059] transition-colors">Username</label>
+                                    <input type="text" id="username" name="username" required
+                                        class="w-full bg-black border border-zinc-800 text-white px-5 py-4 focus:outline-none focus:border-[#C5A059] placeholder-zinc-700 text-sm transition-all duration-300"
+                                        placeholder="PICK A USERNAME">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="email"
+                                        class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Email
+                                        Address</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full bg-black border border-zinc-800 text-white px-5 py-4 focus:outline-none focus:border-[#C5A059] placeholder-zinc-700 text-sm transition-all duration-300"
+                                        placeholder="YOUR@EMAIL.COM">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="password"
+                                        class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Password</label>
+                                    <input type="password" id="password" name="password" required
+                                        class="w-full bg-black border border-zinc-800 text-white px-5 py-4 focus:outline-none focus:border-[#C5A059] placeholder-zinc-700 text-sm transition-all duration-300"
+                                        placeholder="••••••••">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="confirmPassword"
+                                        class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Confirm
+                                        Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required
+                                        class="w-full bg-black border border-zinc-800 text-white px-5 py-4 focus:outline-none focus:border-[#C5A059] placeholder-zinc-700 text-sm transition-all duration-300"
+                                        placeholder="••••••••">
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-[#C5A059] text-black font-black uppercase tracking-[0.2em] py-5 px-8 hover:bg-white transition-colors duration-300 text-xs mt-8 rounded-full">
+                                Create Account
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <!-- Footer Links -->
+                    <div class="text-center mt-12 space-y-6 animate-on-load">
+                        <p class="text-zinc-500 text-xs">
+                            ALREADY A MEMBER?
+                            <a href="/auth/login"
+                                class="text-white font-bold ml-2 hover:text-[#C5A059] uppercase tracking-widest transition-colors border-b border-transparent hover:border-[#C5A059] pb-0.5">
+                                LOGIN HERE
+                            </a>
+                        </p>
+
+                        <a href="/"
+                            class="inline-block text-[10px] uppercase tracking-[0.3em] text-zinc-600 hover:text-white transition-colors duration-300">
+                            ← Back to Home
+                        </a>
+                    </div>
+
+        </div>
+    </div>
+
+    <%- include('../partials/footer') %>

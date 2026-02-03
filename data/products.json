@@ -1,0 +1,891 @@
+[
+    {
+        "id": 1,
+        "code": "LUX-1500",
+        "name": "Luxury Bed (1500)",
+        "category": "bedroom",
+        "price": 89479.03,
+        "image": "/images/LUX.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "code": "LUX-1800",
+        "name": "Luxury Bed (1800)",
+        "category": "bedroom",
+        "price": 96370.58,
+        "image": "/images/LUX.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "code": "MON-1500",
+        "name": "Monarch Bed (1500)",
+        "category": "bedroom",
+        "price": 91302.76,
+        "image": "/images/MON.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "code": "MON-1800",
+        "name": "Monarch Bed (1800)",
+        "category": "bedroom",
+        "price": 97693.08,
+        "image": "/images/MON.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "code": "DNK-1500",
+        "name": "Dink Bed (1500)",
+        "category": "bedroom",
+        "price": 89557.06,
+        "image": "/images/DNK.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "code": "DNK-1800",
+        "name": "Dink Bed (1800)",
+        "category": "bedroom",
+        "price": 97693.08,
+        "image": "/images/DNK.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "code": "DIM-1500",
+        "name": "Diamond Bed (1500)",
+        "category": "bedroom",
+        "price": 90398.17,
+        "image": "/images/DIM.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "code": "DIM-1800",
+        "name": "Diamond Bed (1800)",
+        "category": "bedroom",
+        "price": 97525.12,
+        "image": "/images/DIM.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "Wood+Foam+Lather",
+            "thickness": "40mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Two night stands"
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "code": "SWX-1200",
+        "name": "Swift X Bed (1200)",
+        "category": "bedroom",
+        "price": 48420.69,
+        "image": "/images/SWX.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "code": "SWX-1500",
+        "name": "Swift X Bed (1500)",
+        "category": "bedroom",
+        "price": 56372.89,
+        "image": "/images/SWX.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 11,
+        "code": "SWX-1800",
+        "name": "Swift X Bed (1800)",
+        "category": "bedroom",
+        "price": 70862.77,
+        "image": "/images/SWX.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 12,
+        "code": "SW-1200",
+        "name": "Swift Bed (1200)",
+        "category": "bedroom",
+        "price": 49230.06,
+        "image": "/images/SW.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 13,
+        "code": "SW-1500",
+        "name": "Swift Bed (1500)",
+        "category": "bedroom",
+        "price": 54469.81,
+        "image": "/images/SW.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 14,
+        "code": "SW-1800",
+        "name": "Swift Bed (1800)",
+        "category": "bedroom",
+        "price": 57498.33,
+        "image": "/images/SW.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 15,
+        "code": "SLM-1200",
+        "name": "Selam Bed (1200)",
+        "category": "bedroom",
+        "price": 52799.49,
+        "image": "/images/SLM.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 16,
+        "code": "SLM-1500",
+        "name": "Selam Bed (1500)",
+        "category": "bedroom",
+        "price": 55261.99,
+        "image": "/images/SLM.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 17,
+        "code": "SLM-1800",
+        "name": "Selam Bed (1800)",
+        "category": "bedroom",
+        "price": 68147.10,
+        "image": "/images/SLM.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 18,
+        "code": "SLM2-1200",
+        "name": "Selam#2 Bed (1200)",
+        "category": "bedroom",
+        "price": 52799.49,
+        "image": "/images/SLM2.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 19,
+        "code": "SLM2-1500",
+        "name": "Selam#2 Bed (1500)",
+        "category": "bedroom",
+        "price": 55261.99,
+        "image": "/images/SLM2.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 20,
+        "code": "SLM2-1800",
+        "name": "Selam#2 Bed (1800)",
+        "category": "bedroom",
+        "price": 68147.10,
+        "image": "/images/SLM2.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 21,
+        "code": "SLS-1200",
+        "name": "Slash Bed (1200)",
+        "category": "bedroom",
+        "price": 43411.06,
+        "image": "/images/SLS.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 22,
+        "code": "SLS-1500",
+        "name": "Slash Bed (1500)",
+        "category": "bedroom",
+        "price": 43411.06,
+        "image": "/images/SLS.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 23,
+        "code": "SLS-1800",
+        "name": "Slash Bed (1800)",
+        "category": "bedroom",
+        "price": 43411.06,
+        "image": "/images/SLS.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+UV+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 24,
+        "code": "COM-1200",
+        "name": "Comfy Bed (1200)",
+        "category": "bedroom",
+        "price": 39106.33,
+        "image": "/images/COM.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+Lather+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 25,
+        "code": "COM-1500",
+        "name": "Comfy Bed (1500)",
+        "category": "bedroom",
+        "price": 41890.19,
+        "image": "/images/COM.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+Lather+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 26,
+        "code": "COM-1800",
+        "name": "Comfy Bed (1800)",
+        "category": "bedroom",
+        "price": 41890.19,
+        "image": "/images/COM.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+Lather+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 27,
+        "code": "COM2-1200",
+        "name": "Comfy#2 Bed (1200)",
+        "category": "bedroom",
+        "price": 43787.98,
+        "image": "/images/COM_2.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+Lather+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner"
+            ]
+        }
+    },
+    {
+        "id": 28,
+        "code": "COM2-1500",
+        "name": "Comfy#2 Bed (1500)",
+        "category": "bedroom",
+        "price": 43787.98,
+        "image": "/images/COM_2.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+Lather+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner"
+            ]
+        }
+    },
+    {
+        "id": 29,
+        "code": "COM2-1800",
+        "name": "Comfy#2 Bed (1800)",
+        "category": "bedroom",
+        "price": 43787.98,
+        "image": "/images/COM_2.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+Lather+WOOD",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner"
+            ]
+        }
+    },
+    {
+        "id": 30,
+        "code": "LEG-1200",
+        "name": "Legacy Bed (1200)",
+        "category": "bedroom",
+        "price": 44425.42,
+        "image": "/images/LEG.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 31,
+        "code": "LEG-1500",
+        "name": "Legacy Bed (1500)",
+        "category": "bedroom",
+        "price": 47270.12,
+        "image": "/images/LEG.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 32,
+        "code": "LEG-1800",
+        "name": "Legacy Bed (1800)",
+        "category": "bedroom",
+        "price": 50274.84,
+        "image": "/images/LEG.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 33,
+        "code": "ART-1200",
+        "name": "Artesian Bed (1200)",
+        "category": "bedroom",
+        "price": 44425.42,
+        "image": "/images/ART.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 34,
+        "code": "ART-1500",
+        "name": "Artesian Bed (1500)",
+        "category": "bedroom",
+        "price": 47270.12,
+        "image": "/images/ART.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 35,
+        "code": "ART-1800",
+        "name": "Artesian Bed (1800)",
+        "category": "bedroom",
+        "price": 50274.84,
+        "image": "/images/ART.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 36,
+        "code": "SAF-1200",
+        "name": "Safe Bed (1200)",
+        "category": "bedroom",
+        "price": 44425.42,
+        "image": "/images/SAF.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 37,
+        "code": "SAF-1500",
+        "name": "Safe Bed (1500)",
+        "category": "bedroom",
+        "price": 47270.12,
+        "image": "/images/SAF.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 38,
+        "code": "SAF-1800",
+        "name": "Safe Bed (1800)",
+        "category": "bedroom",
+        "price": 50274.84,
+        "image": "/images/SAF.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 39,
+        "code": "DRM-1200",
+        "name": "Dream Bed (1200)",
+        "category": "bedroom",
+        "price": 58507.40,
+        "image": "/images/DRM.jpg",
+        "specs": {
+            "dim": "1920x1200x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 40,
+        "code": "DRM-1500",
+        "name": "Dream Bed (1500)",
+        "category": "bedroom",
+        "price": 64133.32,
+        "image": "/images/DRM.jpg",
+        "specs": {
+            "dim": "1920x1500x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 41,
+        "code": "DRM-1800",
+        "name": "Dream Bed (1800)",
+        "category": "bedroom",
+        "price": 68821.58,
+        "image": "/images/DRM.jpg",
+        "specs": {
+            "dim": "2025x1800x1000",
+            "material": "MDF+WOOD+PAINT",
+            "thickness": "36mm",
+            "features": [
+                "Rubber foot",
+                "Bed Fastner",
+                "Night stand"
+            ]
+        }
+    },
+    {
+        "id": 42,
+        "code": "CNT-1200",
+        "name": "Center Table",
+        "category": "living",
+        "price": 18202.89,
+        "image": "/images/CNT.jpg",
+        "specs": {
+            "dim": "1200x600x450",
+            "material": "CAR WOOD DAILIT",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 43,
+        "code": "CNT2-1200",
+        "name": "Center Table#2",
+        "category": "living",
+        "price": 20961.63,
+        "image": "/images/CNT2.jpg",
+        "specs": {
+            "dim": "1200x600x450",
+            "material": "CAR WOOD PAINT",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 44,
+        "code": "TVS-1600",
+        "name": "TV-Stand (1600)",
+        "category": "living",
+        "price": 31211.00,
+        "image": "/images/TVS1600.jpg",
+        "specs": {
+            "dim": "1600x400x450",
+            "material": "CAR WOOD PAINT",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 45,
+        "code": "TVS-1800",
+        "name": "TV-Stand (1800)",
+        "category": "living",
+        "price": 33042.66,
+        "image": "/images/TVS1800.jpg",
+        "specs": {
+            "dim": "1800x400x450",
+            "material": "CAR WOOD DAUNIT",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 46,
+        "code": "BB-900+1200",
+        "name": "Bunk Bed",
+        "category": "nursery",
+        "price": 74303.34,
+        "image": "/images/BB.jpg",
+        "specs": {
+            "dim": "900/1200x900x1600",
+            "material": "MDF+UV",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 47,
+        "code": "BBC-WCHD-1200",
+        "name": "Baby Cribs with Chest",
+        "category": "nursery",
+        "price": 43855.42,
+        "image": "/images/BBC.jpg",
+        "specs": {
+            "dim": "1200x900x1000",
+            "material": "MDF+UV",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 48,
+        "code": "DIN-1800",
+        "name": "Dining Set-Six Seater",
+        "category": "dining",
+        "price": 82800.00,
+        "image": "/images/DIN.jpg",
+        "specs": {
+            "dim": "1800x770x800",
+            "material": "MDF+UV",
+            "thickness": "18mm",
+            "features": [
+                "Rubber foot",
+                "Drawers"
+            ]
+        }
+    },
+    {
+        "id": 49,
+        "code": "KC-CB-UV",
+        "name": "Kitchen Cabinet (UV)",
+        "category": "kitchen",
+        "price": 17054.40,
+        "image": "/images/KC_UV.jpg",
+        "specs": {
+            "dim": "Sq. Meter",
+            "material": "UV",
+            "thickness": "18mm",
+            "features": [
+                "Kitchen Leg",
+                "Cover",
+                "Hinje",
+                "Handle"
+            ]
+        }
+    },
+    {
+        "id": 50,
+        "code": "KC-CB-MDF",
+        "name": "Kitchen Cabinet (MDF)",
+        "category": "kitchen",
+        "price": 13259.40,
+        "image": "/images/KC_MDF.jpg",
+        "specs": {
+            "dim": "Sq. Meter",
+            "material": "MDF",
+            "thickness": "18mm",
+            "features": [
+                "Kitchen Leg"
+            ]
+        }
+    }
+]

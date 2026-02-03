@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %> | Impact | Dink Studio
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-black">
+    <div class="noise-bg"></div>
+
+    <%- include('partials/header') %>
+
+        <section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
+            <div id="hero-parallax" class="absolute inset-0 z-0 scale-110">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2400"
+                    class="w-full h-full object-cover opacity-20 grayscale" alt="Luxury Interior">
+            </div>
+
+            <div class="relative z-10 text-center px-6">
+                <div class="overflow-hidden mb-6">
+                    <span class="block text-[#C5A059] font-black uppercase tracking-[0.8em] text-[9px] reveal">
+                        Documenting the Standard
+                    </span>
+                </div>
+                <h1 class="hero-title text-[10vw] font-black uppercase reveal">
+                    ARCHIVAL<br>
+                    <span class="outline-text">IMPACT.</span>
+                </h1>
+                <div class="mt-16 reveal flex flex-col items-center gap-4">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Scroll to Explore</p>
+                    <div class="w-[1px] h-20 bg-gradient-to-b from-[#C5A059] to-transparent"></div>
+                </div>
+            </div>
+        </section>
+
+        <main class="max-w-[1400px] mx-auto px-6 relative z-20">
+
+            <section
+                class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 reveal rounded-3xl overflow-hidden mt-[-100px] backdrop-blur-xl">
+                <div class="p-12 bg-[#080808] group">
+                    <p
+                        class="text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-4 group-hover:text-[#C5A059] transition-colors">
+                        Success Rate</p>
+                    <h3 class="text-5xl font-black text-white">98<span class="text-[#C5A059] text-2xl">%</span></h3>
+                </div>
+                <div class="p-12 bg-[#080808] group border-l border-white/5">
+                    <p
+                        class="text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-4 group-hover:text-[#C5A059] transition-colors">
+                        Installations</p>
+                    <h3 class="text-5xl font-black text-white">500<span class="text-[#C5A059] text-2xl">+</span></h3>
+                </div>
+                <div class="p-12 bg-[#080808] group border-l border-white/5">
+                    <p
+                        class="text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-4 group-hover:text-[#C5A059] transition-colors">
+                        Integrity</p>
+                    <h3 class="text-5xl font-black text-white">0.0<span class="text-[#C5A059] text-2xl">δ</span></h3>
+                </div>
+                <div class="p-12 bg-[#080808] group border-l border-white/5">
+                    <p
+                        class="text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-4 group-hover:text-[#C5A059] transition-colors">
+                        Protection</p>
+                    <h3 class="text-5xl font-black text-white">10<span class="text-[#C5A059] text-2xl">yr</span></h3>
+                </div>
+            </section>
+
+            <section class="py-40">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 reveal relative">
+                        <div class="gold-glow top-0 left-0"></div>
+                        <div class="rounded-[3rem] overflow-hidden arch-border p-4">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1500"
+                                class="w-full aspect-video object-cover rounded-[2.5rem] grayscale hover:grayscale-0 transition-all duration-1000"
+                                alt="Bole Palm Project">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 reveal lg:pl-12">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-10 h-[1px] bg-[#C5A059]"></div>
+                            <span class="text-[10px] font-black uppercase tracking-[0.4em] text-[#C5A059]">Bole Palm
+                                Resident</span>
+                        </div>
+                        <h2 class="text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-10">
+                            "The Standard <br>For Luxury."
+                        </h2>
+                        <p class="text-zinc-400 text-lg font-light leading-relaxed mb-12 border-l border-white/10 pl-8">
+                            "In Addis, finding consistent finish quality is rare. Dink Studio's UV-curing process
+                            provides a mirror finish that simply doesn't exist elsewhere."
+                        </p>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="font-black uppercase tracking-widest text-sm">Tewodros H.</p>
+                                <p class="text-[9px] text-zinc-500 uppercase font-black tracking-widest">CEO, Tech
+                                    Solutions</p>
+                            </div>
+                            <div
+                                class="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-xs">
+                                TH
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 border-t border-white/5">
+                <div class="flex justify-between items-end mb-24 reveal">
+                    <div>
+                        <span
+                            class="text-[#C5A059] text-[9px] font-black uppercase tracking-[0.4em] block mb-2">Verified
+                            Ledger</span>
+                        <h2 class="text-4xl font-black uppercase tracking-tighter">PROJECT <span
+                                class="text-[#C5A059]">LEDGER.</span></h2>
+                    </div>
+                    <p class="text-zinc-600 text-[9px] font-black uppercase tracking-[0.3em] max-w-[200px] text-right">
+                        Documented feedback from the standard of excellence.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="reveal arch-border p-12 rounded-[3.5rem] space-y-10 hover:bg-white/[0.03] transition-all group relative overflow-hidden">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div class="flex gap-1">
+                                <% for(let i=0; i<5; i++) { %> <span class="text-[#C5A059] text-[10px]">★</span>
+                                    <% } %>
+                            </div>
+                            <span class="text-[8px] font-mono text-zinc-600">ID: OA-992</span>
+                        </div>
+                        <p class="text-xl font-medium leading-relaxed italic text-zinc-300 relative z-10">
+                            "The white-glove installation was flawless. They even coordinated with our carpet layers."
+                        </p>
+                        <div class="pt-8 border-t border-white/5 flex justify-between items-center relative z-10">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-white">Dawit S.</p>
+                                <p class="text-[9px] text-[#C5A059] uppercase font-black tracking-widest">Old Airport
+                                </p>
+                            </div>
+                            <div class="text-[8px] px-2 py-1 border border-white/10 rounded uppercase text-zinc-500">
+                                Installation</div>
+                        </div>
+                    </div>
+
+                    <div class="reveal p-12 rounded-[3.5rem] space-y-10 bg-[#C5A059] text-black group relative">
+                        <div
+                            class="absolute right-8 top-8 opacity-20 group-hover:rotate-12 transition-transform duration-700">
+                            <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14C19.017 11.7909 17.2261 10 15.017 10H14.017V8H15.017C18.3307 8 21.017 10.6863 21.017 14V21H14.017ZM3.01697 21L3.01697 18C3.01697 16.8954 3.91241 16 5.01697 16H8.01697V14C8.01697 11.7909 6.22611 10 4.01697 10H3.01697V8H4.01697C7.33068 8 10.017 10.6863 10.017 14V21H3.01697Z" />
+                            </svg>
+                        </div>
+                        <p class="text-2xl font-black leading-tight uppercase tracking-tighter pt-4">"BETTER THAN
+                            IMPORTED. SOLID RELIABILITY."</p>
+                        <div class="pt-8 border-t border-black/10">
+                            <p class="text-[10px] font-black uppercase tracking-widest">Selam K.</p>
+                            <p class="text-[9px] opacity-60 uppercase font-black tracking-widest">Sarbet Residence</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal arch-border p-12 rounded-[3.5rem] space-y-10 hover:bg-white/[0.03] transition-all group relative">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div class="flex gap-1">
+                                <% for(let i=0; i<5; i++) { %> <span class="text-[#C5A059] text-[10px]">★</span>
+                                    <% } %>
+                            </div>
+                            <span class="text-[8px] font-mono text-zinc-600">ID: SE-441</span>
+                        </div>
+                        <p class="text-xl font-medium leading-relaxed italic text-zinc-300 relative z-10">
+                            "The UV-resistant finish is no joke. Our south-facing room used to fade; this has stayed
+                            perfect."
+                        </p>
+                        <div class="pt-8 border-t border-white/5 flex justify-between items-center relative z-10">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-white">Muna A.</p>
+                                <p class="text-[9px] text-[#C5A059] uppercase font-black tracking-widest">Summit Estates
+                                </p>
+                            </div>
+                            <div class="text-[8px] px-2 py-1 border border-white/10 rounded uppercase text-zinc-500">
+                                Durability</div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal arch-border p-12 rounded-[3.5rem] space-y-10 hover:bg-white/[0.03] transition-all group relative overflow-hidden">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div class="flex gap-1">
+                                <% for(let i=0; i<5; i++) { %> <span class="text-[#C5A059] text-[10px]">★</span>
+                                    <% } %>
+                            </div>
+                            <span class="text-[8px] font-mono text-zinc-600">ID: BK-102</span>
+                        </div>
+                        <p class="text-xl font-medium leading-relaxed italic text-zinc-300 relative z-10">
+                            "The depth of the wood grain they managed to pull out is incredible. Truly artistic work."
+                        </p>
+                        <div class="pt-8 border-t border-white/5 flex justify-between items-center relative z-10">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-white">Yonas B.</p>
+                                <p class="text-[9px] text-[#C5A059] uppercase font-black tracking-widest">Bole Bulshalo
+                                </p>
+                            </div>
+                            <div class="text-[8px] px-2 py-1 border border-white/10 rounded uppercase text-zinc-500">
+                                Aesthetics</div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal arch-border p-12 rounded-[3.5rem] space-y-10 hover:bg-white/[0.03] transition-all group relative">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div class="flex gap-1">
+                                <% for(let i=0; i<5; i++) { %> <span class="text-[#C5A059] text-[10px]">★</span>
+                                    <% } %>
+                            </div>
+                            <span class="text-[8px] font-mono text-zinc-600">ID: CZ-305</span>
+                        </div>
+                        <p class="text-xl font-medium leading-relaxed italic text-zinc-300 relative z-10">
+                            "Professional, timely, and the result exceeded the digital renders. Highly recommended."
+                        </p>
+                        <div class="pt-8 border-t border-white/5 flex justify-between items-center relative z-10">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-white">Lydia T.</p>
+                                <p class="text-[9px] text-[#C5A059] uppercase font-black tracking-widest">CMC Heights
+                                </p>
+                            </div>
+                            <div class="text-[8px] px-2 py-1 border border-white/10 rounded uppercase text-zinc-500">
+                                Precision</div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="reveal arch-border p-12 rounded-[3.5rem] space-y-10 hover:bg-white/[0.03] transition-all group relative">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div class="flex gap-1">
+                                <% for(let i=0; i<5; i++) { %> <span class="text-[#C5A059] text-[10px]">★</span>
+                                    <% } %>
+                            </div>
+                            <span class="text-[8px] font-mono text-zinc-600">ID: KP-772</span>
+                        </div>
+                        <p class="text-xl font-medium leading-relaxed italic text-zinc-300 relative z-10">
+                            "We have high traffic in our office, but the floors haven't shown a single scratch in a
+                            year."
+                        </p>
+                        <div class="pt-8 border-t border-white/5 flex justify-between items-center relative z-10">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-white">Elias W.</p>
+                                <p class="text-[9px] text-[#C5A059] uppercase font-black tracking-widest">Kazanchis Biz
+                                </p>
+                            </div>
+                            <div class="text-[8px] px-2 py-1 border border-white/10 rounded uppercase text-zinc-500">
+                                Commercial</div>
+                        </div>
+                    </div>
+            </section>
+
+            <section class="py-40 reveal">
+                <div class="arch-border rounded-[4rem] p-20 text-center relative overflow-hidden">
+                    <div class="gold-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                    <h3 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-12 relative z-10">
+                        ELEVATE YOUR <br><span class="text-[#C5A059]">LIFESTYLE.</span>
+                    </h3>
+                    <div class="flex flex-col md:flex-row gap-6 justify-center relative z-10">
+                        <a href="/contact"
+                            class="px-12 py-6 bg-white text-black font-black uppercase text-[10px] tracking-[0.4em] hover:bg-[#C5A059] transition-all duration-500">
+                            Design Consultation
+                        </a>
+                        <a href="/catalog"
+                            class="px-12 py-6 border border-white/10 text-white font-black uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-black transition-all duration-500">
+                            Browse Collections
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

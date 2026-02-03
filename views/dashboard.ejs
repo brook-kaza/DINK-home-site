@@ -1,0 +1,106 @@
+<%- include('partials/header') %>
+
+    <div class="min-h-screen bg-[#0f0f0f] relative pt-32 pb-24 px-6 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-full h-[60vh] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] opacity-50 z-0">
+        </div>
+        <div
+            class="absolute top-[10%] right-[10%] w-[800px] h-[800px] bg-[#C5A059] opacity-[0.02] blur-[150px] rounded-full z-0">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 border-b border-zinc-800 pb-8">
+                <div class="space-y-4">
+                    <h6 class="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.4em]">Personal Area</h6>
+                    <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white">
+                        Hello, <span class="text-zinc-600">
+                            <%= username %>
+                        </span>
+                    </h1>
+                </div>
+
+                <form action="/auth/logout" method="GET">
+                    <button type="submit"
+                        class="group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-red-500 transition-colors">
+                        <span>Sign Out</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4 group-hover:translate-x-1 transition-transform">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+
+                <!-- Sidebar Stats -->
+                <div class="md:col-span-4 space-y-6">
+                    <!-- Status Card -->
+                    <div
+                        class="bg-[#151515] border border-zinc-800 p-8 group hover:border-[#C5A059] transition-all duration-500">
+                        <h3 class="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-4">Membership Level
+                        </h3>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-black text-white">Standard</span>
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        </div>
+                    </div>
+
+                    <!-- Orders Card -->
+                    <div
+                        class="bg-[#151515] border border-zinc-800 p-8 group hover:border-[#C5A059] transition-all duration-500">
+                        <h3 class="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-4">Active Orders
+                        </h3>
+                        <span class="text-4xl font-black text-white">0</span>
+                        <p class="text-zinc-600 text-xs mt-2">No active shipments</p>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="md:col-span-8 space-y-8">
+                    <div class="bg-[#151515] border border-zinc-800 p-10 h-full relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#C5A059]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        </div>
+
+                        <h2 class="text-2xl font-black uppercase tracking-tighter text-white mb-8 relative z-10">Quick
+                            Actions</h2>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
+                            <a href="/catalog"
+                                class="flex flex-col justify-between p-6 bg-black border border-zinc-800 hover:border-white transition-all duration-300 h-40">
+                                <span class="text-[#C5A059]">01</span>
+                                <span class="text-lg font-bold text-white uppercase tracking-wider">Browse
+                                    Catalog</span>
+                            </a>
+
+                            <a href="/contact"
+                                class="flex flex-col justify-between p-6 bg-black border border-zinc-800 hover:border-white transition-all duration-300 h-40">
+                                <span class="text-[#C5A059]">02</span>
+                                <span class="text-lg font-bold text-white uppercase tracking-wider">Request
+                                    Design</span>
+                            </a>
+
+                            <a href="/"
+                                class="flex flex-col justify-between p-6 bg-black border border-zinc-800 hover:border-white transition-all duration-300 h-40">
+                                <span class="text-[#C5A059]">03</span>
+                                <span class="text-lg font-bold text-white uppercase tracking-wider">Saved Items</span>
+                            </a>
+
+                            <a href="#"
+                                class="flex flex-col justify-between p-6 bg-black border border-zinc-800 hover:border-white transition-all duration-300 h-40 opacity-50 cursor-not-allowed">
+                                <span class="text-zinc-700">04</span>
+                                <span class="text-lg font-bold text-zinc-500 uppercase tracking-wider">Order
+                                    History</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>

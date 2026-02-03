@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= typeof title !=='undefined' ? title : 'Knowledge Base | Dink Studio' %>
+    </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-black">
+    <%- include('partials/header') %>
+
+        <div class="gold-glow"></div>
+
+        <main class="max-w-7xl mx-auto px-6 py-16 md:py-32 relative z-10 page-offset">
+
+            <div class="mb-16 md:mb-24 reveal-init">
+                <h1 class="hero-title font-black uppercase tracking-tighter mb-8 leading-none">
+                    The <span class="text-[#C5A059]">Knowledge</span><br />Base
+                </h1>
+                <div class="h-1 w-20 bg-[#C5A059] mb-8"></div>
+                <p class="text-zinc-500 text-base md:text-lg max-w-2xl leading-relaxed font-light">
+                    Detailed insights into our engineering, delivery logistics, and bespoke design process for the
+                    discerning Addis Ababa homeowner.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+                <div class="lg:col-span-3">
+                    <div class="lg:sticky lg:top-32 space-y-2 lg:space-y-4 reveal-init">
+                        <p class="text-[9px] font-black uppercase tracking-[0.3em] text-zinc-600 mb-4 lg:mb-6">Explore
+                            Topics</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-4">
+                            <a href="#craft" class="btn-ghost">01. Engineering & Craft</a>
+                            <a href="#logistics" class="btn-ghost">02. Logistics & Setup</a>
+                            <a href="#bespoke" class="btn-ghost">03. Bespoke Orders</a>
+                            <a href="#care" class="btn-ghost">04. Aftercare & Warranty</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-9 space-y-16 md:space-y-24">
+
+                    <section id="craft" class="reveal-init">
+                        <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-8 text-[#C5A059]">01.
+                            Engineering & Craft</h2>
+                        <div class="space-y-4">
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">Why
+                                        do you prioritize High-Density MDF over Solid Wood?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed mb-4">Solid wood is prone to
+                                        significant "movement"—expanding and contracting with the seasonal humidity
+                                        changes in Addis Ababa, which can lead to cracks.</p>
+                                    <p class="text-zinc-500 text-sm leading-relaxed">Our high-density, industrial-grade
+                                        MDF is engineered for stability. It provides a superior, perfectly flat surface
+                                        for our luxury UV-lacquer finishes and ensures that your doors and drawers stay
+                                        perfectly aligned for years without warping.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">What
+                                        specific Keste Damena Foam density do you use?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed">We exclusively use <strong>KD Grade
+                                            1 High-Resilience (HR) Foam</strong>. This is the gold standard for premium
+                                        upholstery. Unlike standard market foams that flatten within months, HR foam
+                                        acts like a spring—providing immediate comfort while instantly returning to its
+                                        original shape.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">How
+                                        do you ensure the structural integrity of large pieces?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed">Every large piece undergoes
+                                        "Stress-Point Reinforcement." We use heavy-duty steel brackets and
+                                        industrial-strength cam-locks. This allows our furniture to be assembled and
+                                        disassembled multiple times without losing its rigidity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="logistics" class="reveal-init">
+                        <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-8 text-[#C5A059]">02.
+                            Logistics & Setup</h2>
+                        <div class="space-y-4">
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">Do
+                                        you deliver outside of Addis Ababa?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed">While our primary "White-Glove"
+                                        service is within Addis Ababa, we do offer delivery to major cities across
+                                        Ethiopia (Bishoftu, Adama, Bahir Dar, etc.) for a flat-rate logistics fee.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">How
+                                        do I know if the furniture will fit through my door?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed mb-4">We provide a <strong>"Dink Fit
+                                            Guide"</strong> for every item. Please measure your entrance door and
+                                        stairwell clearance before delivery. Most of our large items are modular for
+                                        easier navigation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="bespoke" class="reveal-init">
+                        <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-8 text-[#C5A059]">03.
+                            Bespoke & Customization</h2>
+                        <div class="space-y-4">
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">Can
+                                        I choose my own fabric?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed">Absolutely. We maintain a curated
+                                        library of linens, velvets, and leathers. We also support "COM" (Customer’s Own
+                                        Material) manufacturing if you have a specific fabric.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="care" class="reveal-init">
+                        <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight mb-8 text-[#C5A059]">04.
+                            Aftercare & Warranty</h2>
+                        <div class="space-y-4">
+                            <div class="faq-item">
+                                <button onclick="toggleFAQ(this)"
+                                    class="w-full p-5 md:p-6 flex justify-between items-start gap-4 text-left">
+                                    <span
+                                        class="text-[11px] md:text-sm font-bold uppercase tracking-widest leading-tight">What
+                                        does the Warranty cover?</span>
+                                    <span class="faq-icon text-xl transition flex-shrink-0">+</span>
+                                </button>
+                                <div class="faq-answer px-5 md:px-6">
+                                    <p class="text-zinc-500 text-sm leading-relaxed">We offer a 2-year structural
+                                        warranty on internal frames and a 1-year warranty on mechanical hardware (hinges
+                                        and drawer slides) under normal residential use.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <div
+                class="mt-24 md:mt-32 p-8 md:p-16 border-t border-zinc-900 flex flex-col items-center text-center reveal-init">
+                <h4 class="text-xl md:text-2xl font-bold uppercase mb-4">Did we miss something?</h4>
+                <p class="text-zinc-500 text-sm mb-10 font-light">Our design consultants are available for a one-on-one
+                    consultation.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+                    <a href="https://t.me/yourtelegram" class="btn-primary-luxury">Telegram Chat</a>
+                    <a href="/contact" class="btn-primary-luxury"
+                        style="background:transparent; border:1px solid white; color:white;">Book a Visit</a>
+                </div>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

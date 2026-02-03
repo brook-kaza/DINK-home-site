@@ -1,0 +1,101 @@
+<footer class="bg-black border-t border-zinc-900 pt-24 pb-12 px-6 relative z-10">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+
+            <div class="md:col-span-5 space-y-8">
+                <a href="/" class="group logo-container" style="--logo-h: 2rem;">
+                    <div id="logo-slider"
+                        class="transition-transform duration-500 ease-out group-hover:-translate-y-[var(--logo-h)]">
+                        <div class="logo-item text-2xl font-black tracking-tighter uppercase text-white">
+                            DINK<span class="text-[#C5A059]">HOME</span>
+                        </div>
+                        <div class="logo-item text-2xl font-black tracking-tighter uppercase text-[#C5A059]">
+                            DINK<span class="text-white">STUDIO</span>
+                        </div>
+                    </div>
+                </a>
+                <p class="text-zinc-500 text-sm leading-relaxed max-w-sm">
+                    Elevating Ethiopian living through industrial precision. As part of the Keste Damena legacy, we
+                    engineer furniture that defines the modern Addis Ababa home.
+                </p>
+                <div class="flex gap-4">
+                    <% const socials=[ {n: 'IG' , h: '#' }, {n: 'FB' , h: '#' }, {n: 'TG' , h: '#' } ];
+                        socials.forEach(link=> { %>
+                        <a href="<%= link.h %>"
+                            class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-[10px] font-bold text-zinc-400 hover:border-[#C5A059] hover:text-[#C5A059] hover:-translate-y-1 transition-all duration-300">
+                            <%= link.n %>
+                        </a>
+                        <% }); %>
+                </div>
+            </div>
+
+            <div class="md:col-span-3">
+                <h4 class="text-white text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-[#C5A059]">01.
+                    Navigation</h4>
+                <ul class="space-y-4">
+                    <li><a href="/catalog"
+                            class="text-zinc-500 text-[11px] uppercase tracking-widest font-bold hover:text-white transition-colors">Showroom</a>
+                    </li>
+                    <li><a href="/testimonials"
+                            class="text-zinc-500 text-[11px] uppercase tracking-widest font-bold hover:text-white transition-colors">Client
+                            Spaces</a></li>
+                    <li><a href="/about"
+                            class="text-zinc-500 text-[11px] uppercase tracking-widest font-bold hover:text-white transition-colors">Our
+                            Story</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4">
+                <h4 class="text-white text-[10px] font-black uppercase tracking-[0.4em] mb-10 text-[#C5A059]">02.
+                    Archive & Support</h4>
+                <ul class="space-y-4">
+                    <li><a href="/contact"
+                            class="text-zinc-500 text-[11px] uppercase tracking-widest font-bold hover:text-white transition-colors">Consult
+                            a Designer</a></li>
+                    <li><a href="/faq"
+                            class="text-zinc-500 text-[11px] uppercase tracking-widest font-bold hover:text-white transition-colors">Technical
+                            FAQ</a></li>
+                    <li><a href="/privacy"
+                            class="text-zinc-500 text-[11px] uppercase tracking-widest font-bold hover:text-white transition-colors">Privacy
+                            & Terms</a></li>
+                    <li class="pt-4 border-t border-zinc-900">
+                        <span class="text-zinc-600 text-[10px] uppercase tracking-widest block mb-1">HQ Location</span>
+                        <span class="text-zinc-400 text-[11px] font-bold">Addis Ababa, Ethiopia</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-zinc-900 pt-10 flex flex-col md:row justify-between items-center gap-6">
+            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <p class="text-zinc-600 text-[9px] uppercase tracking-[0.3em]">
+                    &copy; 2026 DINK HOME PLC.
+                </p>
+                <div class="h-px w-8 bg-zinc-800 hidden md:block"></div>
+                <p class="text-zinc-700 text-[9px] uppercase tracking-[0.3em] font-black">
+                    Quality Assured by Keste Damena
+                </p>
+            </div>
+            <p class="text-[9px] font-black uppercase tracking-[0.4em] text-zinc-800">
+                Ethical Craftsmanship
+            </p>
+        </div>
+    </div>
+</footer>
+
+<button id="backToTop"
+    class="fixed bottom-10 right-10 z-[70] flex h-14 w-14 items-center justify-center rounded-full border border-zinc-800 bg-white text-black transition-all duration-500 hover:bg-[#C5A059] hover:text-white shadow-2xl scale-0 opacity-0 group">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor"
+        class="w-5 h-5 group-hover:-translate-y-1 transition-transform">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+</button>
+
+
+
+<script src="/js/gsap-animations.js"></script>
+<script src="/js/search-logic.js"></script>
+
+</body>
+
+</html>
