@@ -9,9 +9,9 @@ const sequelize = require('./config/database');
 // Only load User model if database is configured
 const User = sequelize ? require('./models/User') : null;
 
-// In serverless (Vercel), relying on __dirname for assets/views is brittle because code may execute
-// from a different folder. Use the deployment root.
-const ROOT_DIR = process.cwd();
+// On Vercel, process.cwd() can differ between environments. The most reliable
+// base path for bundled assets (views/public/data) is the directory of THIS file.
+const ROOT_DIR = __dirname;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
