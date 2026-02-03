@@ -1,29 +1,11 @@
-// Vercel serverless entry: forwards all requests to the Express app
-let app;
+// Vercel serverless entry: forward all requests to the Express app.
+// Keep this file minimal; most "serverless crashes" come from app startup errors.
 try {
-  app = require('../app');
-  console.log('✅ App loaded successfully');
+  // Express app is a (req, res) function; exporting it directly is the most compatible.
+  module.exports = require('../app');
 } catch (err) {
-  console.error('❌ Failed to load app:', err);
-  console.error('Stack:', err.stack);
-  // Return a handler that shows the error
+  console.error('Failed to load app:', err);
   module.exports = (req, res) => {
-    console.error('Startup error on request:', err.message);
-    res.status(500).type('text').send(`Startup error: ${err.message}\n\nCheck Vercel logs for details.`);
+    res.status(500).type('text').send('Startup error. Check Vercel logs.');
   };
-  return;
 }
-
-// Wrap app to catch any unhandled errors
-const handler = (req, res) => {
-  try {
-    app(req, res);
-  } catch (err) {
-    console.error('Unhandled error in handler:', err);
-    if (!res.headersSent) {
-      res.status(500).send('Internal server error. Please try again.');
-    }
-  }
-};
-
-module.exports = handler;

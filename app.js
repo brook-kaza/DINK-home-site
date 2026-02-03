@@ -9,15 +9,24 @@ const sequelize = require('./config/database');
 // Only load User model if database is configured
 const User = sequelize ? require('./models/User') : null;
 
+// In serverless (Vercel), relying on __dirname for assets/views is brittle because code may execute
+// from a different folder. Use the deployment root.
+const ROOT_DIR = process.cwd();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Required for secure cookies behind Vercel proxy
+if (process.env.NODE_ENV === 'production') {
+    app.set('trust proxy', 1);
+}
+
 // View engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(ROOT_DIR, 'views'));
 
 // Middleware
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(ROOT_DIR, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -51,7 +60,7 @@ if (process.env.NODE_ENV !== 'production') {
 // --- DATA FETCHING ---
 const getAllData = () => {
     try {
-        const filePath = path.join(__dirname, 'data', 'products.json');
+        const filePath = path.join(ROOT_DIR, 'data', 'products.json');
         const raw = fs.readFileSync(filePath, 'utf8');
         const products = JSON.parse(raw);
         const categories = [...new Set(products.map(p => p.category))];
@@ -70,6 +79,26 @@ const { isAuthenticated } = require('./middleware/auth');
 
 // Auth routes
 app.use('/auth', authRoutes);
+
+// Health check for Vercel/Supabase debugging
+app.get('/health', async (req, res) => {
+    const dbConfigured = !!sequelize;
+    let dbOk = false;
+    if (sequelize) {
+        try {
+            await sequelize.authenticate();
+            dbOk = true;
+        } catch (e) {
+            dbOk = false;
+        }
+    }
+    res.status(200).json({
+        ok: true,
+        nodeEnv: process.env.NODE_ENV || null,
+        dbConfigured,
+        dbOk
+    });
+});
 
 // Dashboard (protected route)
 app.get('/dashboard', isAuthenticated, async (req, res) => {
@@ -90,117 +119,70 @@ app.get('/dashboard', isAuthenticated, async (req, res) => {
 
 // 1. HOME
 app.get('/', (req, res) => {
-    try {
-        const data = getAllData();
-        const featuredItems = (data.products || []).slice(0, 3);
-        res.render('home', { title: 'Dink Home | Design that Excites', featured: featuredItems });
-    } catch (error) {
-        console.error('Home page error:', error);
-        res.status(500).send('Error loading home page. Please try again later.');
-    }
+    const data = getAllData();
+    const featuredItems = (data.products || []).slice(0, 3);
+    res.render('home', { title: 'Dink Home | Design that Excites', featured: featuredItems });
 });
 
 // 2. TESTIMONIALS
 app.get('/testimonials', (req, res) => {
-    try {
-        res.render('testimonials', { title: 'Client Stories | Dink Home' });
-    } catch (error) {
-        console.error('Testimonials page error:', error);
-        res.status(500).send('Error loading testimonials page.');
-    }
+    res.render('testimonials', { title: 'Client Stories | Dink Home' });
 });
 
 // 3. CATALOG
 app.get('/catalog', (req, res) => {
-    try {
-        const data = getAllData();
-        res.render('catalog', { products: data.products, categories: data.categories, title: 'Showroom | Dink Home' });
-    } catch (error) {
-        console.error('Catalog page error:', error);
-        res.status(500).send('Error loading catalog page.');
-    }
+    const data = getAllData();
+    res.render('catalog', { products: data.products, categories: data.categories, title: 'Showroom | Dink Home' });
 });
 
 // 4. PRODUCT DETAIL
 app.get('/product/:code', (req, res) => {
-    try {
-        const data = getAllData();
-        const product = data.products.find(p => p.code === req.params.code);
+    const data = getAllData();
+    const product = data.products.find(p => p.code === req.params.code);
 
-        if (!product) {
-            return res.status(404).send("Product not found");
-        }
+    if (!product) return res.status(404).send("Product not found");
 
-        res.render('product-view', {
-            title: `${product.name} | Dink Home`,
-            product: product,
-            products: data.products,
-            categories: data.categories
-        });
-    } catch (error) {
-        console.error('Product page error:', error);
-        res.status(500).send('Error loading product page.');
-    }
+    res.render('product-view', {
+        title: `${product.name} | Dink Home`,
+        product,
+        products: data.products,
+        categories: data.categories
+    });
 });
 
 // 5. ABOUT & CONTACT
 app.get('/about', (req, res) => {
-    try {
-        res.render('about', { title: 'Our Story | Dink Home' });
-    } catch (error) {
-        console.error('About page error:', error);
-        res.status(500).send('Error loading about page.');
-    }
+    res.render('about', { title: 'Our Story | Dink Home' });
 });
 
 app.get('/contact', (req, res) => {
-    try {
-        res.render('contact', { title: 'Contact Us | Dink Home' });
-    } catch (error) {
-        console.error('Contact page error:', error);
-        res.status(500).send('Error loading contact page.');
-    }
+    res.render('contact', { title: 'Contact Us | Dink Home' });
 });
 
 app.get('/privacy', (req, res) => {
-    try {
-        res.render('privacy', { title: 'Privacy Policy | Dink Home' });
-    } catch (error) {
-        console.error('Privacy page error:', error);
-        res.status(500).send('Error loading privacy page.');
-    }
+    res.render('privacy', { title: 'Privacy Policy | Dink Home' });
 });
 
 app.get('/faq', (req, res) => {
-    try {
-        res.render('faq', { title: 'Common Questions | Dink Home' });
-    } catch (error) {
-        console.error('FAQ page error:', error);
-        res.status(500).send('Error loading FAQ page.');
-    }
+    res.render('faq', { title: 'Common Questions | Dink Home' });
 });
 
 app.get('/impact', (req, res) => {
-    try {
-        res.render('impact', { title: 'Our Impact' });
-    } catch (error) {
-        console.error('Impact page error:', error);
-        res.status(500).send('Error loading impact page.');
-    }
-});
-// 6. ERROR HANDLER (catches errors passed to next(err))
-app.use((err, req, res, next) => {
-    console.error('Error handler triggered:', err.message);
-    console.error('Error stack:', err.stack);
-    if (!res.headersSent) {
-        const isDev = process.env.NODE_ENV !== 'production';
-        res.status(500).send(isDev ? `Error: ${err.message}\n\n${err.stack}` : 'Something went wrong. Please try again later.');
-    }
+    res.render('impact', { title: 'Our Impact' });
 });
 
-// 7. SAFETY NET (404)
+// 6. SAFETY NET (404)
 app.use((req, res) => {
     res.status(404).send(`Oops! Dink Home doesn't have a page at ${req.url}.`);
+});
+
+// 7. ERROR HANDLER (must be last)
+app.use((err, req, res, next) => {
+    console.error(err);
+    if (res.headersSent) return next(err);
+    res.status(500).type('text').send(process.env.NODE_ENV === 'production'
+        ? 'Internal Server Error'
+        : `Error: ${err.message}\n\n${err.stack}`);
 });
 
 // Only run DB sync + server when executed directly (e.g. node app.js), not when required by Vercel
