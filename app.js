@@ -119,7 +119,15 @@ app.get('/impact', (req, res) => {
     // res.render looks in the "views" folder automatically
     res.render('impact', { title: 'Our Impact' });
 });
-// 6. SAFETY NET
+// 6. ERROR HANDLER (catches errors passed to next(err))
+app.use((err, req, res, next) => {
+    console.error(err);
+    if (!res.headersSent) {
+        res.status(500).send(process.env.NODE_ENV === 'production' ? 'Something went wrong.' : `Error: ${err.message}`);
+    }
+});
+
+// 7. SAFETY NET (404)
 app.use((req, res) => {
     res.status(404).send(`Oops! Dink Home doesn't have a page at ${req.url}.`);
 });

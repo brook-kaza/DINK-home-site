@@ -2,7 +2,8 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
 // Supabase uses PostgreSQL. Use DATABASE_URL (connection string) or individual DB_* vars.
-const useConnectionString = process.env.DATABASE_URL;
+// On Vercel: set DATABASE_URL in Project Settings > Environment Variables (Session pooler, port 6543).
+const useConnectionString = process.env.DATABASE_URL && process.env.DATABASE_URL.trim();
 
 const commonOptions = {
     dialect: 'postgres',
