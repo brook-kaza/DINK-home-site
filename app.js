@@ -4,9 +4,10 @@ const fs = require('fs');
 const session = require('express-session');
 require('dotenv').config();
 
-// Database
+// Database - Supabase PostgreSQL only
 const sequelize = require('./config/database');
-const User = require('./models/User');
+// Only load User model if database is configured
+const User = sequelize ? require('./models/User') : null;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -70,8 +71,10 @@ app.use('/auth', authRoutes);
 
 // Dashboard (protected route)
 app.get('/dashboard', isAuthenticated, async (req, res) => {
+    if (!sequelize) {
+        return res.status(503).send('Database not configured. Please set DATABASE_URL in Vercel environment variables.');
+    }
     try {
-        // Test database connection
         await sequelize.authenticate();
         res.render('dashboard', {
             title: 'Dashboard | Dink Home',
@@ -79,10 +82,7 @@ app.get('/dashboard', isAuthenticated, async (req, res) => {
         });
     } catch (error) {
         console.error('Database error on dashboard:', error);
-        res.status(500).render('error', {
-            title: 'Error | Dink Home',
-            message: 'Database connection failed. Please check your configuration.'
-        });
+        res.status(500).send('Database connection failed. Please check your DATABASE_URL configuration.');
     }
 });
 
@@ -147,18 +147,30 @@ app.use((req, res) => {
 
 // Only run DB sync + server when executed directly (e.g. node app.js), not when required by Vercel
 if (require.main === module) {
-    sequelize.sync({ alter: true })
-        .then(() => {
-            console.log('✅ Database synced successfully');
-            app.listen(PORT, () => {
-                console.log(`✅ Server running at http://localhost:${PORT}`);
-                console.log(`📝 Register at: http://localhost:${PORT}/auth/register`);
-                console.log(`🔐 Login at: http://localhost:${PORT}/auth/login`);
+    if (sequelize) {
+        sequelize.sync({ alter: true })
+            .then(() => {
+                console.log('✅ Database synced successfully');
+                app.listen(PORT, () => {
+                    console.log(`✅ Server running at http://localhost:${PORT}`);
+                    console.log(`📝 Register at: http://localhost:${PORT}/auth/register`);
+                    console.log(`🔐 Login at: http://localhost:${PORT}/auth/login`);
+                });
+            })
+            .catch(err => {
+                console.error('❌ Database sync failed:', err);
+                console.error('⚠️  Starting server anyway (non-DB routes will work)');
+                app.listen(PORT, () => {
+                    console.log(`✅ Server running at http://localhost:${PORT} (without database)`);
+                });
             });
-        })
-        .catch(err => {
-            console.error('❌ Database sync failed:', err);
+    } else {
+        console.warn('⚠️  DATABASE_URL not set. Starting server without database.');
+        app.listen(PORT, () => {
+            console.log(`✅ Server running at http://localhost:${PORT} (without database)`);
+            console.log(`⚠️  Set DATABASE_URL to enable login/register/dashboard features`);
         });
+    }
 }
 
 module.exports = app;

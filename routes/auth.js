@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
+const sequelize = require('../config/database');
+// Only load User model if database is configured
+const User = sequelize ? require('../models/User') : null;
 
 // Register Page
 router.get('/register', (req, res) => {
@@ -12,6 +14,13 @@ router.get('/register', (req, res) => {
 
 // Register POST
 router.post('/register', async (req, res) => {
+    if (!sequelize || !User) {
+        return res.render('auth/register', {
+            title: 'Sign Up | Dink Home',
+            error: 'Database not configured. Please set DATABASE_URL in Vercel environment variables.'
+        });
+    }
+
     try {
         const { username, email, password, confirmPassword } = req.body;
 
@@ -37,14 +46,14 @@ router.post('/register', async (req, res) => {
             });
         }
 
-        // Check database connection first
+        // Check database connection
         try {
-            await require('../config/database').authenticate();
+            await sequelize.authenticate();
         } catch (dbError) {
             console.error('Database connection error:', dbError);
             return res.render('auth/register', {
                 title: 'Sign Up | Dink Home',
-                error: 'Database connection failed. Please check your configuration.'
+                error: 'Database connection failed. Please check your DATABASE_URL configuration.'
             });
         }
 
@@ -91,6 +100,14 @@ router.get('/login', (req, res) => {
 
 // Login POST
 router.post('/login', async (req, res) => {
+    if (!sequelize || !User) {
+        return res.render('auth/login', {
+            title: 'Login | Dink Home',
+            error: 'Database not configured. Please set DATABASE_URL in Vercel environment variables.',
+            success: null
+        });
+    }
+
     try {
         const { username, password } = req.body;
 
@@ -102,14 +119,14 @@ router.post('/login', async (req, res) => {
             });
         }
 
-        // Check database connection first
+        // Check database connection
         try {
-            await require('../config/database').authenticate();
+            await sequelize.authenticate();
         } catch (dbError) {
             console.error('Database connection error:', dbError);
             return res.render('auth/login', {
                 title: 'Login | Dink Home',
-                error: 'Database connection failed. Please check your configuration.',
+                error: 'Database connection failed. Please check your DATABASE_URL configuration.',
                 success: null
             });
         }

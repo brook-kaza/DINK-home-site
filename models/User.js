@@ -2,7 +2,11 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const bcrypt = require('bcryptjs');
 
-const User = sequelize.define('User', {
+if (!sequelize) {
+    // Return a dummy User model if database is not configured
+    module.exports = null;
+} else {
+    const User = sequelize.define('User', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -44,9 +48,10 @@ const User = sequelize.define('User', {
     }
 });
 
-// Method to validate password
-User.prototype.validPassword = async function (password) {
-    return await bcrypt.compare(password, this.password);
-};
+    // Method to validate password
+    User.prototype.validPassword = async function (password) {
+        return await bcrypt.compare(password, this.password);
+    };
 
-module.exports = User;
+    module.exports = User;
+}
