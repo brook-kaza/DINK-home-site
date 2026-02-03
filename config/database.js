@@ -7,7 +7,7 @@ const useConnectionString = process.env.DATABASE_URL && process.env.DATABASE_URL
 
 const commonOptions = {
     dialect: 'postgres',
-    logging: false,
+    logging: process.env.NODE_ENV === 'development' ? console.log : false,
     dialectOptions: {
         ssl: {
             require: true,
@@ -19,20 +19,44 @@ const commonOptions = {
         min: 0,
         acquire: 30000,
         idle: 10000
+    },
+    // Don't connect immediately - lazy connection
+    retry: {
+        max: 3
     }
 };
 
-const sequelize = useConnectionString
-    ? new Sequelize(process.env.DATABASE_URL, commonOptions)
-    : new Sequelize(
-        process.env.DB_NAME,
-        process.env.DB_USER,
-        process.env.DB_PASS,
-        {
-            host: process.env.DB_HOST,
-            port: process.env.DB_PORT || 5432,
-            ...commonOptions
-        }
-    );
+let sequelize;
+
+try {
+    if (useConnectionString) {
+        sequelize = new Sequelize(process.env.DATABASE_URL, commonOptions);
+    } else if (process.env.DB_HOST && process.env.DB_NAME) {
+        sequelize = new Sequelize(
+            process.env.DB_NAME,
+            process.env.DB_USER,
+            process.env.DB_PASS,
+            {
+                host: process.env.DB_HOST,
+                port: process.env.DB_PORT || 5432,
+                ...commonOptions
+            }
+        );
+    } else {
+        // Create a dummy sequelize instance if no DB config (for non-DB routes)
+        console.warn('⚠️  No database configuration found. Database features will not work.');
+        sequelize = new Sequelize('sqlite::memory:', {
+            dialect: 'sqlite',
+            logging: false
+        });
+    }
+} catch (error) {
+    console.error('❌ Database initialization error:', error.message);
+    // Create a dummy instance to prevent app crash
+    sequelize = new Sequelize('sqlite::memory:', {
+        dialect: 'sqlite',
+        logging: false
+    });
+}
 
 module.exports = sequelize;

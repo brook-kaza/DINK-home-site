@@ -37,6 +37,17 @@ router.post('/register', async (req, res) => {
             });
         }
 
+        // Check database connection first
+        try {
+            await require('../config/database').authenticate();
+        } catch (dbError) {
+            console.error('Database connection error:', dbError);
+            return res.render('auth/register', {
+                title: 'Sign Up | Dink Home',
+                error: 'Database connection failed. Please check your configuration.'
+            });
+        }
+
         // Check if user already exists
         const existingUser = await User.findOne({
             where: {
@@ -87,6 +98,18 @@ router.post('/login', async (req, res) => {
             return res.render('auth/login', {
                 title: 'Login | Dink Home',
                 error: 'Please enter username and password',
+                success: null
+            });
+        }
+
+        // Check database connection first
+        try {
+            await require('../config/database').authenticate();
+        } catch (dbError) {
+            console.error('Database connection error:', dbError);
+            return res.render('auth/login', {
+                title: 'Login | Dink Home',
+                error: 'Database connection failed. Please check your configuration.',
                 success: null
             });
         }

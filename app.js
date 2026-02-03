@@ -26,8 +26,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false, // Set to true if using HTTPS
-        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+        secure: process.env.NODE_ENV === 'production', // true on HTTPS (Vercel)
+        maxAge: 24 * 60 * 60 * 1000, // 24 hours
+        sameSite: 'lax'
     }
 }));
 
@@ -68,11 +69,21 @@ const { isAuthenticated } = require('./middleware/auth');
 app.use('/auth', authRoutes);
 
 // Dashboard (protected route)
-app.get('/dashboard', isAuthenticated, (req, res) => {
-    res.render('dashboard', {
-        title: 'Dashboard | Dink Home',
-        username: req.session.username
-    });
+app.get('/dashboard', isAuthenticated, async (req, res) => {
+    try {
+        // Test database connection
+        await sequelize.authenticate();
+        res.render('dashboard', {
+            title: 'Dashboard | Dink Home',
+            username: req.session.username
+        });
+    } catch (error) {
+        console.error('Database error on dashboard:', error);
+        res.status(500).render('error', {
+            title: 'Error | Dink Home',
+            message: 'Database connection failed. Please check your configuration.'
+        });
+    }
 });
 
 // 1. HOME
@@ -121,9 +132,11 @@ app.get('/impact', (req, res) => {
 });
 // 6. ERROR HANDLER (catches errors passed to next(err))
 app.use((err, req, res, next) => {
-    console.error(err);
+    console.error('Error handler:', err);
+    console.error('Stack:', err.stack);
     if (!res.headersSent) {
-        res.status(500).send(process.env.NODE_ENV === 'production' ? 'Something went wrong.' : `Error: ${err.message}`);
+        const isDev = process.env.NODE_ENV !== 'production';
+        res.status(500).send(isDev ? `Error: ${err.message}\n\n${err.stack}` : 'Something went wrong. Please try again later.');
     }
 });
 
