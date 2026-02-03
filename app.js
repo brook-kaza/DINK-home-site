@@ -40,11 +40,13 @@ app.use((req, res, next) => {
     next();
 });
 
-// --- DEBUG LOGGER ---
-app.use((req, res, next) => {
-    console.log(`[${new Date().toLocaleTimeString()}] Request: ${req.method} ${req.url}`);
-    next();
-});
+// --- DEBUG LOGGER (only in development) ---
+if (process.env.NODE_ENV !== 'production') {
+    app.use((req, res, next) => {
+        console.log(`[${new Date().toLocaleTimeString()}] Request: ${req.method} ${req.url}`);
+        next();
+    });
+}
 
 // --- DATA FETCHING ---
 const getAllData = () => {
@@ -88,52 +90,108 @@ app.get('/dashboard', isAuthenticated, async (req, res) => {
 
 // 1. HOME
 app.get('/', (req, res) => {
-    const data = getAllData();
-    const featuredItems = (data.products || []).slice(0, 3);
-    res.render('home', { title: 'Dink Home | Design that Excites', featured: featuredItems });
+    try {
+        const data = getAllData();
+        const featuredItems = (data.products || []).slice(0, 3);
+        res.render('home', { title: 'Dink Home | Design that Excites', featured: featuredItems });
+    } catch (error) {
+        console.error('Home page error:', error);
+        res.status(500).send('Error loading home page. Please try again later.');
+    }
 });
 
 // 2. TESTIMONIALS
 app.get('/testimonials', (req, res) => {
-    res.render('testimonials', { title: 'Client Stories | Dink Home' });
+    try {
+        res.render('testimonials', { title: 'Client Stories | Dink Home' });
+    } catch (error) {
+        console.error('Testimonials page error:', error);
+        res.status(500).send('Error loading testimonials page.');
+    }
 });
 
 // 3. CATALOG
 app.get('/catalog', (req, res) => {
-    const data = getAllData();
-    res.render('catalog', { products: data.products, categories: data.categories, title: 'Showroom | Dink Home' });
+    try {
+        const data = getAllData();
+        res.render('catalog', { products: data.products, categories: data.categories, title: 'Showroom | Dink Home' });
+    } catch (error) {
+        console.error('Catalog page error:', error);
+        res.status(500).send('Error loading catalog page.');
+    }
 });
 
-// 4. PRODUCT DETAIL (FIXED)
+// 4. PRODUCT DETAIL
 app.get('/product/:code', (req, res) => {
-    const data = getAllData();
-    const product = data.products.find(p => p.code === req.params.code);
+    try {
+        const data = getAllData();
+        const product = data.products.find(p => p.code === req.params.code);
 
-    if (!product) {
-        return res.status(404).send("Product not found");
+        if (!product) {
+            return res.status(404).send("Product not found");
+        }
+
+        res.render('product-view', {
+            title: `${product.name} | Dink Home`,
+            product: product,
+            products: data.products,
+            categories: data.categories
+        });
+    } catch (error) {
+        console.error('Product page error:', error);
+        res.status(500).send('Error loading product page.');
     }
-
-    res.render('product-view', {
-        title: `${product.name} | Dink Home`,
-        product: product,           // The specific product
-        products: data.products,    // This fixes the "products is not defined" error
-        categories: data.categories // This fixes the "categories is not defined" error
-    });
 });
 
 // 5. ABOUT & CONTACT
-app.get('/about', (req, res) => res.render('about', { title: 'Our Story | Dink Home' }));
-app.get('/contact', (req, res) => res.render('contact', { title: 'Contact Us | Dink Home' }));
-app.get('/privacy', (req, res) => res.render('privacy', { title: 'Privacy Policy | Dink Home' }));
-app.get('/faq', (req, res) => res.render('faq', { title: 'Common Questions | Dink Home' }));
+app.get('/about', (req, res) => {
+    try {
+        res.render('about', { title: 'Our Story | Dink Home' });
+    } catch (error) {
+        console.error('About page error:', error);
+        res.status(500).send('Error loading about page.');
+    }
+});
+
+app.get('/contact', (req, res) => {
+    try {
+        res.render('contact', { title: 'Contact Us | Dink Home' });
+    } catch (error) {
+        console.error('Contact page error:', error);
+        res.status(500).send('Error loading contact page.');
+    }
+});
+
+app.get('/privacy', (req, res) => {
+    try {
+        res.render('privacy', { title: 'Privacy Policy | Dink Home' });
+    } catch (error) {
+        console.error('Privacy page error:', error);
+        res.status(500).send('Error loading privacy page.');
+    }
+});
+
+app.get('/faq', (req, res) => {
+    try {
+        res.render('faq', { title: 'Common Questions | Dink Home' });
+    } catch (error) {
+        console.error('FAQ page error:', error);
+        res.status(500).send('Error loading FAQ page.');
+    }
+});
+
 app.get('/impact', (req, res) => {
-    // res.render looks in the "views" folder automatically
-    res.render('impact', { title: 'Our Impact' });
+    try {
+        res.render('impact', { title: 'Our Impact' });
+    } catch (error) {
+        console.error('Impact page error:', error);
+        res.status(500).send('Error loading impact page.');
+    }
 });
 // 6. ERROR HANDLER (catches errors passed to next(err))
 app.use((err, req, res, next) => {
-    console.error('Error handler:', err);
-    console.error('Stack:', err.stack);
+    console.error('Error handler triggered:', err.message);
+    console.error('Error stack:', err.stack);
     if (!res.headersSent) {
         const isDev = process.env.NODE_ENV !== 'production';
         res.status(500).send(isDev ? `Error: ${err.message}\n\n${err.stack}` : 'Something went wrong. Please try again later.');
